@@ -12,17 +12,18 @@
     "groups": [
       {
         "group": "Get Started",
-        "pages": ["introduction", "quickstart", "development"]
+        "pages": ["introduction", "authentication", "rate-limiting"]
       },
       {
-        "group": "Essentials",
+        "group": "API Reference",
+        "pages": ["api-reference/logo-API", "api-reference/brand-API"]
+      },
+      {
+        "group": "Support",
         "pages": [
-          "essentials/markdown",
-          "essentials/code",
-          "essentials/images",
-          "essentials/settings",
-          "essentials/navigation",
-          "essentials/reusable-snippets"
+          "support/missing-feature",
+          "support/report-inaccurate-data",
+          "support/api-status"
         ]
       }
     ]
