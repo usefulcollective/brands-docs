@@ -1,33 +1,62 @@
 ---
 title: "Logo API"
-description: "Example section for showcasing API endpoints"
+description: "The Logo API allows you to retrieve logos based on a domain or symbol, providing both high-quality images and fallback options when a logo is not available."
 ---
 
-<Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
-</Note>
+### Introduction
 
-## Welcome
+Let's get started with an example of how to use the Logo API. The following request will return the logo for the domain `apple.com`
 
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
-
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
-</Card>
-
-## Authentication
-
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
-
-```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
+```md
+https://img.logokit.com/apple.com?token={your-publishable-token}
 ```
+
+<Frame>
+  <img src="/images/apple.png" />
+</Frame>
+
+### Logo API Endpoint
+
+```bash Request
+https://img.logokit.com/{domain-or-symbol}?token={your-publishable-token}
+```
+
+### Parameters
+
+<ResponseField name="domain-or-symbol" type="string" required>
+  The domain or symbol for which you want to retrieve the logo. For example,
+  `apple.com` or `AAPL`.
+</ResponseField>
+
+<ResponseField name="token" type="string" required>
+  Your publishable token for authentication. You can find yours in [account
+  settings](https://logokit.com/account/api-tokens).
+</ResponseField>
+
+<ResponseField name="fallback" type="string" default="monogram">
+  Define response type when the logo is not available.
+  <Expandable title="values">
+    <ResponseField name="monogram" type="string">
+      Returns a monogram image created from the first letter of the domain or symbol.
+    </ResponseField>
+
+    <ResponseField name="404" type="string | number">
+      Returns a 404 HTTP error
+    </ResponseField>
+
+  </Expandable>
+</ResponseField>
+
+### Rate Limiting
+
+Rate limiting is enforced based on the user's plan. Keep this in mind to avoid hitting your limits during development. To get
+more information about the rate limits, please refer to the [pricing page](https://logokit.com/pricing).
+
+### Free vs Paid Plans
+
+<Warning>
+  Free plan users are limited to 32x32px logos. If you need higher resolution
+  logos, please [upgrade here](https://logokit.com/pricing).
+</Warning>
+
+The Logo API is available for both free and paid plans. However, the free plan has limitations on the number of requests you can make per day. If you need more requests or additional features, consider upgrading to a paid plan.

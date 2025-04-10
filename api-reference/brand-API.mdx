@@ -3,31 +3,51 @@ title: "Brand API"
 description: "Example section for showcasing API endpoints"
 ---
 
-<Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
-</Note>
-
-## Welcome
-
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
-
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
-</Card>
+<Warning>
+  Brand API endpoints are available only for paid plans. If you are on a free
+  plan, you can [upgrade here](https://logokit.com/pricing).
+</Warning>
 
 ## Authentication
 
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
+Brand API endpoints are authenticated using Bearer token authentication. You can find yours in the
+[your account](https://logokit.com/account/api-tokens).
+
+```bash
+Authorization: Bearer: {{secret-api-token}}
+```
+
+## Get Brand Information
+
+TODO
+
+### Request
+
+```bash
+curl --header "Authorization: Bearer: {{secret-api-token}}" "https://api.logokit.com/brands/apple.com"
+```
+
+### Response
 
 ```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
+{
+  "id": "apple.com",
+  "name": "Apple",
+  "domain": "apple.com",
+  "logo": {
+    "url": "https://img.logokit.com/apple.com?token={your-publishable-token}",
+    "width": 200,
+    "height": 200
+  },
+  "colors": [
+    {
+      "color": "#000000"
+    }
+  ],
+  "fonts": [
+    {
+      "fontFamily": "Helvetica Neue"
+    }
+  ]
+}
 ```

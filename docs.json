@@ -20,11 +20,7 @@
       },
       {
         "group": "Support",
-        "pages": [
-          "support/missing-feature",
-          "support/report-inaccurate-data",
-          "support/api-status"
-        ]
+        "pages": ["support/report-inaccurate-data", "support/api-status"]
       }
     ]
   },
