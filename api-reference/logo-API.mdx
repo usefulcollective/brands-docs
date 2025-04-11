@@ -9,7 +9,7 @@ Let's get started with an example of how to use the Logo API. By default, logo i
 The following HTML snippet demonstrates how to retrieve a logo for the domain `apple.com`:
 
 ```html
-<img src="https://img.logokit.com/apple.com?token=<your-publishable-token>" />
+<img src="https://img.logokit.com/apple.com?token=<publishable-api-token>" />
 ```
 
 <Frame>
@@ -19,7 +19,7 @@ The following HTML snippet demonstrates how to retrieve a logo for the domain `a
 ## Logo API Endpoint
 
 ```md Request
-https://img.logokit.com/<identifier>?token=<your-publishable-token>
+https://img.logokit.com/<identifier>?token=<publishable-api-token>
 ```
 
 ### Parameters
@@ -71,7 +71,7 @@ The Logo API is available for both free and paid plans. However, the free plan h
     do this by using the following URL:
 
     ```html
-    <img src="https://img.logokit.com/NVDA?token=<your-publishable-token>" />
+    <img src="https://img.logokit.com/NVDA?token=<publishable-api-token>" />
     ```
 
     <Frame>
@@ -85,7 +85,7 @@ The Logo API is available for both free and paid plans. However, the free plan h
     handling cases where the logo is not found, and you want to handle it in your
     application.
     ```md Request
-    https://img.logokit.com/invalid.com?fallback=404&token=<your-publishable-token>
+    https://img.logokit.com/invalid.com?fallback=404&token=<publishable-api-token>
     ```
     
     ```bash HTTP Response

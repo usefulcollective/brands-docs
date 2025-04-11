@@ -1,0 +1,46 @@
+---
+title: Quick Start Guide
+description: "A step-by-step guide to get started with LogoKit APIs"
+---
+
+<Steps>
+  <Step title="Create an Account">
+    Visit our [sign-up page](https://logokit.com/sign-up) to create an account.
+    You can sign up using your email or Google account. Once you have signed up,
+    you will have access to your account dashboard.
+  </Step>
+  <Step title="Obtain API Tokens">
+    After signing up, you can find your API tokens in your [account
+    settings](https://logokit.com/account/api-tokens). Make sure to keep your
+    secret API token secure and do not share it publicly.
+  </Step>
+  <Step title="Integrate with Your Application">
+    ```md Logo API Request
+    https://img.logokit.com/<identifier>?token=<publishable-api-token>
+    ```
+
+    ```bash Brand API Request
+    curl "https://api.logokit.com/brands/<identifier>" \
+         --header "Authorization: Bearer: <secret-api-token>"
+    ```
+
+  </Step>
+</Steps>
+
+## API Reference
+
+You can find detailed information about our APIs in the API Reference section. Here are the two main APIs you will be using:
+
+<CardGroup cols={2}>
+  <Card title="Logo API" icon="image" href="/api-reference/logo-API">
+    Retrieve logos based on a domain or stock exchange ticker
+  </Card>
+  <Card
+    title="Brand API"
+    icon="code"
+    href="https://mintlify.com/docs/development"
+  >
+    Get comprehensive data about companies, including their address, founding
+    year, and number of employees and more
+  </Card>
+</CardGroup>
