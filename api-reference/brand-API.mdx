@@ -1,6 +1,6 @@
 ---
 title: "Brand API"
-description: "Example section for showcasing API endpoints"
+description: "The Brand API provides comprehensive data about companies, including their address, domain, founding year, and number of employees. It's designed for developers looking to integrate reliable brand information into their applications, making it easier to enhance user experiences with up-to-date brand insights."
 ---
 
 <Warning>
@@ -58,6 +58,11 @@ Authorization: Bearer: <secret-api-token>
   example, `apple.com` or `AAPL`. We support all major stock exchanges
   worldwide, including NYSE, NASDAQ, TYO, LSE, and more.
 </ResponseField>
+
+## Rate Limiting
+
+Similar to the Logo API, the Brand API implements rate limiting based on user subscription plans, with access only for paid users.
+To get more information about the rate limits, please refer to the [pricing page](https://logokit.com/pricing).
 
 ## Examples
 
