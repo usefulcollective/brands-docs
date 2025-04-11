@@ -24,30 +24,30 @@ https://img.logokit.com/<identifier>?token=<your-publishable-token>
 
 ### Parameters
 
-<ResponseField name="identifier" type="string" required>
+<ParamField path="identifier" type="string" required>
   The domain or stock ticker for which you want to retrieve the logo. For
   example, `apple.com` or `AAPL`. We support all major stock exchanges
   worldwide, including NYSE, NASDAQ, TYO, LSE, and more.
-</ResponseField>
+</ParamField>
 
-<ResponseField name="token" type="string" required>
+<ParamField path="token" type="string" required>
   Your publishable token for authentication. You can find yours in [account
   settings](https://logokit.com/account/api-tokens).
-</ResponseField>
+</ParamField>
 
-<ResponseField name="fallback" type="string" default="monogram">
+<ParamField path="fallback" type="string" default="monogram">
   Define response type when the logo is not available.
   <Expandable title="values">
-    <ResponseField name="monogram" type="string">
+    <ParamField path="monogram" type="string">
       Returns a monogram image created from the first letter of the domain or symbol.
-    </ResponseField>
+    </ParamField>
 
-    <ResponseField name="404" type="string | number">
+    <ParamField path="404" type="string | number">
       Returns a 404 HTTP error
-    </ResponseField>
+    </ParamField>
 
   </Expandable>
-</ResponseField>
+</ParamField>
 
 ### Rate Limiting
 

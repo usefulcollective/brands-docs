@@ -16,7 +16,7 @@ curl "https://api.logokit.com/brands/<identifier>" \
 ```
 
 <Expandable title="Response">
-```json Response
+```json JSON Response
 {
   "address": {
     "address1": "One Apple Park Way",
@@ -53,10 +53,29 @@ Authorization: Bearer: <secret-api-token>
 
 ### Parameters
 
-<ResponseField name="identifier" type="string" required>
+<ParamField path="identifier" type="string" required>
   The domain or stock ticker for which you want to retrieve the logo. For
   example, `apple.com` or `AAPL`. We support all major stock exchanges
   worldwide, including NYSE, NASDAQ, TYO, LSE, and more.
+</ParamField>
+
+### Response
+
+<ResponseField name="200 OK" type="application/json">
+  The API returns a JSON object containing the brand information for the
+  specified identifier. The response includes details such as the brand's name,
+  address, founding year, number of employees, and more.
+</ResponseField>
+
+<ResponseField name="401 Unauthorized">
+  The API returns a 401 Unauthorized error if the provided API token is invalid
+  or missing. Ensure that you include a valid Bearer token in the
+  `Authorization` header of your request.
+</ResponseField>
+
+<ResponseField name="404 Not Found">
+  The API returns a 404 Not Found error if the specified identifier does not
+  exist in our database. Make sure to use a valid domain or stock ticker.
 </ResponseField>
 
 ## Rate Limiting
