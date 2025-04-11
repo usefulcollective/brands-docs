@@ -1,29 +1,30 @@
 ---
 title: "Logo API"
-description: "The Logo API allows you to retrieve logos based on a domain or symbol, providing both high-quality images and fallback options when a logo is not available."
+description: "The Logo API allows you to retrieve logos based on a domain or stock exchange ticker, providing both high-quality images and fallback options when a logo is not available."
 ---
 
-### Introduction
+## Introduction
 
-Let's get started with an example of how to use the Logo API. The following request will return the logo for the domain `apple.com`
+Let's get started with an example of how to use the Logo API. By default, logo images are returned in PNG format, and the size is 32x32 pixels for free plan users and 128x128 pixels for paid plan users. You can easily integrate this into your web application or use it in any HTML document.
+The following HTML snippet demonstrates how to retrieve a logo for the domain `apple.com`:
 
-```md
-https://img.logokit.com/apple.com?token={your-publishable-token}
+```html
+<img src="https://img.logokit.com/apple.com?token={your-publishable-token}" />
 ```
 
 <Frame>
   <img src="/images/apple.png" />
 </Frame>
 
-### Logo API Endpoint
+## Logo API Endpoint
 
 ```bash Request
-https://img.logokit.com/{domain-or-symbol}?token={your-publishable-token}
+https://img.logokit.com/{identifier}?token={your-publishable-token}
 ```
 
 ### Parameters
 
-<ResponseField name="domain-or-symbol" type="string" required>
+<ResponseField name="identifier" type="string" required>
   The domain or symbol for which you want to retrieve the logo. For example,
   `apple.com` or `AAPL`.
 </ResponseField>
@@ -60,3 +61,34 @@ more information about the rate limits, please refer to the [pricing page](https
 </Warning>
 
 The Logo API is available for both free and paid plans. However, the free plan has limitations on the number of requests you can make per day. If you need more requests or additional features, consider upgrading to a paid plan.
+
+## Examples
+
+<AccordionGroup>
+  <Accordion title="Retrieve logo for stock ticker">
+    Let's say you want to retrieve the logo for the NASDAQ's ticker `NVDA`. You can
+    do this by using the following URL:
+
+    ```html
+    <img src="https://img.logokit.com/NVDA?token={your-publishable-token}" />
+    ```
+
+    <Frame>
+      <img src="/images/nvda.png" />
+    </Frame>
+
+  </Accordion>
+  <Accordion title="Get 404 HTTP response for non-existent logo">
+    If you want to receive a 404 HTTP response when the logo is not available, you can
+    use the `fallback` parameter in the URL and set it to `404`. This is useful for
+    handling cases where the logo is not found, and you want to handle it in your
+    application.
+    ```html
+    https://img.logokit.com/invalid.com?fallback=404&token={your-publishable-token}
+    ```
+    
+    ```bash HTTP Response
+      404 Not Found
+    ```
+  </Accordion>
+</AccordionGroup>
