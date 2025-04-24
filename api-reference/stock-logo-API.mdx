@@ -1,31 +1,33 @@
 ---
-title: "Logo API"
-description: "The Logo API allows you to retrieve logos based on a domain, providing both high-quality images and fallback options when a logo is not available."
+title: "Stock Logo API"
+description: "The Stock Logo API allows you to retrieve logos based on a stock exchange ticker, providing both high-quality images and fallback options when a logo is not available."
 ---
 
 ## Introduction
 
-Let's get started with an example of how to use the Logo API. By default, logo images are returned in PNG format, and the size is 32x32 pixels for free plan users and 128x128 pixels for paid plan users. You can easily integrate this into your web application or use it in any HTML document.
-The following HTML snippet demonstrates how to retrieve a logo for the domain `apple.com`:
+Let's get started with an example of how to use the Stock Logo API. By default, logo images are returned in PNG format, and the size is 32x32 pixels for free plan users and 128x128 pixels for paid plan users. You can easily integrate this into your web application or use it in any HTML document.
+The following HTML snippet demonstrates how to retrieve a logo for stock ticker `AAPL`:
 
 ```html
-<img src="https://img.logokit.com/apple.com?token=<publishable-api-token>" />
+<img src="https://img.logokit.com/ticker/AAPL?token=<publishable-api-token>" />
 ```
 
 <Frame>
   <img src="/images/apple.png" />
 </Frame>
 
-## Logo API Endpoint
+## Stock Logo API Endpoint
 
 ```md Request
-https://img.logokit.com/<domain>?token=<publishable-api-token>
+https://img.logokit.com/ticker/<symbol>?token=<publishable-api-token>
 ```
 
 ### Parameters
 
-<ParamField path="domain" type="string" required>
-  The domain for which you want to retrieve the logo. For example, `apple.com`.
+<ParamField path="symbol" type="string" required>
+  Stock ticker for which you want to retrieve the logo. For example, `AAPL`. We
+  support all major stock exchanges worldwide, including NYSE, NASDAQ, TYO, LSE,
+  and more.
 </ParamField>
 
 <ParamField path="token" type="string" required>
@@ -64,12 +66,12 @@ The Logo API is available for both free and paid plans. However, the free plan h
 ## Examples
 
 <AccordionGroup>
-  <Accordion title="Retrieve logo for Nvidia">
-    Let's say you want to retrieve the logo for the Nvidia. You can
+  <Accordion title="Retrieve logo for Nvidia stock ticker">
+    Let's say you want to retrieve the logo for the NASDAQ's ticker `NVDA`. You can
     do this by using the following URL:
 
     ```html
-    <img src="https://img.logokit.com/nvidia.com?token=<publishable-api-token>" />
+    <img src="https://img.logokit.com/ticker/NVDA?token=<publishable-api-token>" />
     ```
 
     <Frame>

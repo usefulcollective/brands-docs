@@ -16,7 +16,11 @@
       },
       {
         "group": "API Reference",
-        "pages": ["api-reference/logo-API", "api-reference/brand-API"]
+        "pages": [
+          "api-reference/logo-API",
+          "api-reference/stock-logo-API",
+          "api-reference/brand-API"
+        ]
       },
       {
         "group": "Support",
