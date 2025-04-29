@@ -12,7 +12,12 @@
     "groups": [
       {
         "group": "Get Started",
-        "pages": ["introduction", "quick_start", "authentication"]
+        "pages": [
+          "introduction",
+          "quick_start",
+          "authentication",
+          "migrate_from_clearbit"
+        ]
       },
       {
         "group": "API Reference",

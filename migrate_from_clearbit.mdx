@@ -1,0 +1,81 @@
+---
+title: Migrate from Clearbit
+description: "A step-by-step guide to migrate from Clearbit to LogoKit"
+---
+
+## Why migrate?
+
+Clearbit’s Logo API will be deprecated and shut down by December 1, 2025, which means any existing integrations using their service will stop working.
+Logokit offers a free drop-in replacement for Clearbit’s logo service.
+
+## Clearbit vs. LogoKit
+
+LogoKit supports all the features offered by Clearbit, plus additional capabilities that set us apart. In addition to providing fast and reliable access to company logos and brand assets, we offer stock logos from all major global exchanges, including NYSE, NASDAQ, TSE, LSE, SZSE, Euronext, Deutsche Boerse, and more. Our structured Brand Detail API lets you retrieve up-to-date, detailed brand information with a single call, making it easy to access everything you need in one place.
+
+## Migration
+
+<Steps>
+  <Step title="Create your LogoKit account">
+    If you don’t already have a LogoKit account, create one.
+
+    <Card title="Sign-up for a free LogoKit account" href="https://logokit.com/sign-up">
+      Create a free account
+    </Card>
+
+  </Step>
+  <Step title="Grab your API tokens">
+    In the dashboard open [Account → API
+    Tokens](https://logokit.com/account/api-tokens).
+    
+    **Publishable token** is safe to embed in public pages and CDN URLs, while **Secret token** whould be kept private and used for server-side requests.
+  </Step>
+  <Step title="Replace the Clearbit URL with LogoKit">
+    **Old Clearbit CDN** 
+    ```html
+      <img src="https://logo.clearbit.com/stripe.com" />
+    ``` 
+    **Drop-in replacement with LogoKit** 
+    ```html
+      <img src="https://img.logokit.com/stripe.com?token=<publishable-api-token>" />
+    ``` 
+    Nothing else in your HTML changes—just replace the domain and append your
+    token.
+  </Step>
+  <Step title="Call the Brand API (optional)">
+    If you previously enriched companies via Clearbit’s Enrichment API, call LogoKit’s Brand API instead:  
+    ```bash
+    curl -H "Authorization: Bearer <secret-api-token>" \
+         "https://api.logokit.com/brands/stripe.com"
+    ```  
+    The response includes the company’s name and details, including their address,
+    social media links, corporate, and industry information.
+  </Step>
+  <Step title="Test & deploy">
+    Open a test page or run your suite and confirm that:  
+    * Logos render for every domain you expect.  
+    * No requests hit `logo.clearbit.com` in your network tab.  
+    Once everything looks good, ship to production well before December 1 2025.
+  </Step>
+</Steps>
+
+## API Reference
+
+<CardGroup cols={2}>
+  <Card title="Logo API" icon="image" href="/api-reference/logo-API">
+    Retrieve logos by domain or stock-ticker and optionally set size or format.
+  </Card>
+  <Card title="Brand API" icon="code" href="/api-reference/brand-API">
+    Full company profile – headquarters, founding year, employee count, and
+    more.
+  </Card>
+</CardGroup>
+
+---
+
+**Have questions or need help with the migration?**
+
+Drop us a line at support@logokit.com.
+
+---
+
+_Migrated in minutes—before your users ever notice the change._
