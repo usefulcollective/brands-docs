@@ -5,7 +5,12 @@ description: "The Logo API allows you to retrieve logos based on a domain, provi
 
 ## Introduction
 
-Let's get started with an example of how to use the Logo API. By default, logo images are returned in PNG format, and the size is 32x32 pixels for free plan users and 128x128 pixels for paid plan users. You can easily integrate this into your web application or use it in any HTML document.
+Let's get started with an example of how to use the Logo API. 
+
+The Logo API works through hotlinking, allowing you to display company logos directly in your web applications or HTML documents. Simply use an image tag that references our service URL, and the logos will load directly from our servers to your pages. This hotlinking approach ensures you always display the most current logo versions without managing logo files yourself. Since our service is designed for hotlinking, please note that caching or storing the logo images locally is not supported.
+
+By default, logo images are returned in PNG format, and the size is 32x32 pixels for free plan users and 128x128 pixels for paid plan users.
+
 The following HTML snippet demonstrates how to retrieve a logo for the domain `apple.com`:
 
 ```html
@@ -13,7 +18,7 @@ The following HTML snippet demonstrates how to retrieve a logo for the domain `a
 ```
 
 <Frame>
-  <img src="/images/apple.png" />
+  ![](/images/apple.png)
 </Frame>
 
 ## Logo API Endpoint
@@ -33,24 +38,22 @@ https://img.logokit.com/<domain>?token=<publishable-api-token>
   settings](https://logokit.com/account/api-tokens).
 </ParamField>
 
-<ParamField path="fallback" type="string" default="monogram">
+<ParamField path="fallback" default="monogram" type="string">
   Define response type when the logo is not available.
+
   <Expandable title="values">
     <ParamField path="monogram" type="string">
       Returns a monogram image created from the first letter of the domain or symbol.
     </ParamField>
-
     <ParamField path="404" type="string | number">
       Returns a 404 HTTP error
     </ParamField>
-
   </Expandable>
 </ParamField>
 
 ## Rate Limiting
 
-Rate limiting is enforced based on the user's plan. Keep this in mind to avoid hitting your limits during development. To get
-more information about the rate limits, please refer to the [pricing page](https://logokit.com/pricing).
+Rate limiting is enforced based on the user's plan. Keep this in mind to avoid hitting your limits during development. To get more information about the rate limits, please refer to the [pricing page](https://logokit.com/pricing).
 
 ## Free vs Paid Plans
 
@@ -60,6 +63,22 @@ more information about the rate limits, please refer to the [pricing page](https
 </Warning>
 
 The Logo API is available for both free and paid plans. However, the free plan has limitations on the number of requests you can make per day. If you need more requests or additional features, consider upgrading to a paid plan.
+
+### Attribution
+
+As part of our commitment to providing valuable logo services to everyone, we offer a generous free plan with essential features. In return, we simply ask that free plan users include a small attribution link to LogoKit on pages where our logos appear.
+
+**We give you creative freedom** in how you style and position this attribution to seamlessly blend with your website's design. While we're flexible about the presentation, we do ask that the attribution link:
+
+- Remains visible to your website visitors
+- Isn't hidden behind overlays or obstructions
+- Can be properly indexed by search engines
+
+This small acknowledgment helps us continue offering free logo services while growing our community. Here's a simple example you can customize to match your site's look and feel:
+
+```markup Example attribution link
+ <a href="https://logokit.com" alt="Logo API">Logos provided by LogoKit.com</a> 
+```
 
 ## Examples
 
@@ -73,19 +92,19 @@ The Logo API is available for both free and paid plans. However, the free plan h
     ```
 
     <Frame>
-      <img src="/images/nvda.png" />
+      ![](/images/nvda.png)
     </Frame>
-
   </Accordion>
   <Accordion title="Get 404 HTTP response for non-existent logo">
     If you want to receive a 404 HTTP response when the logo is not available, you can
     use the `fallback` parameter in the URL and set it to `404`. This is useful for
     handling cases where the logo is not found, and you want to handle it in your
     application.
+
     ```md Request
     https://img.logokit.com/invalid.com?fallback=404&token=<publishable-api-token>
     ```
-    
+
     ```bash HTTP Response
       404 Not Found
     ```
