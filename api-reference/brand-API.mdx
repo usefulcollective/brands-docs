@@ -12,7 +12,7 @@ openapi: "GET /brands/{identifier}"
 ### Authentication
 
 Brand API endpoint is authenticated using Bearer token in the `Authorization` header of your request. Make sure to keep
-this secret API token secure and do not share it publicly. You can find yours in
+this **secret API token** secure and do not share it publicly. You can find yours in
 [your account](https://logokit.com/account/api-tokens).
 
 ```http
@@ -21,7 +21,7 @@ Authorization: Bearer: <secret-api-token>
 
 ## Rate Limiting
 
-Similar to the Logo API, the Brand API implements rate limiting based on user subscription plans, with access only for paid users.
+Similar to the Logo API, the Brand API implements rate limiting based on user subscription plans.
 To get more information about the rate limits, please refer to the [pricing page](https://logokit.com/pricing).
 
 ## Examples

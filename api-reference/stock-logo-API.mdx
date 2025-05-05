@@ -1,13 +1,14 @@
 ---
 title: "Stock Logo API"
-description: "The Stock Logo API allows you to retrieve logos based on a stock exchange ticker, providing both high-quality images and fallback options when a logo is not available."
+description: "Stock Logo API allows you to retrieve logos based on a stock exchange ticker, providing both high-quality images and fallback options when a logo is not available."
 openapi: "GET /ticker/{symbol}"
 ---
 
-## Introduction
+## Basic Usage
 
-Let's get started with an example of how to use the Stock Logo API. By default, logo images are returned in PNG format, and the size is 64x64 pixels for free plan users and 128x128 pixels for paid plan users. You can easily integrate this into your web application or use it in any HTML document.
-The following HTML snippet demonstrates how to retrieve a logo for stock ticker `AAPL`:
+Stock Logo API works through hotlinking stock ticker logos directly into your app or website. Simply use an image tag, and the logos will load directly from our global CDN. This approach ensures you always display the most current logo versions without managing logo files yourself. Since our service is designed for hotlinking, please note that caching or storing the logo images locally is not supported.
+
+This snippet demonstrates how to retrieve a logo for stock ticker `AAPL`:
 
 ```html
 <img src="https://img.logokit.com/ticker/AAPL?token=<publishable-api-token>" />
@@ -17,19 +18,13 @@ The following HTML snippet demonstrates how to retrieve a logo for stock ticker 
   <img src="/images/apple.png" />
 </Frame>
 
-## Rate Limiting
+## Limitations
 
-Rate limiting is enforced based on the user's plan. Keep this in mind to avoid hitting your limits during development. To get
-more information about the rate limits, please refer to the [pricing page](https://logokit.com/pricing).
-
-## Free vs Paid Plans
-
-<Warning>
-  Free plan users are limited to 64x64px logos. If you need higher resolution
-  logos, please [upgrade here](https://logokit.com/pricing).
-</Warning>
-
-The Logo API is available for both free and paid plans. However, the free plan has limitations on the number of requests you can make per day. If you need more requests or additional features, consider upgrading to a paid plan.
+<Info>
+  Our Free Logo API plan is limited to 64x64px logos and require an
+  [attribution](/attribution) link. [Upgrade ](https://logokit.com/pricing) to a
+  paid plan for high resolution logos, increased rate limits and no attribution.
+</Info>
 
 ## Examples
 

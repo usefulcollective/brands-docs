@@ -29,6 +29,10 @@
         ]
       },
       {
+        "group": "Usage & Limits",
+        "pages": ["rate-limits", "free-vs-paid-plans", "attribution"]
+      },
+      {
         "group": "Support",
         "pages": ["support/report-inaccurate-data", "support/api-status"]
       }

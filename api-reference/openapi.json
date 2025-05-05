@@ -5,16 +5,6 @@
     "version": "1.0.0",
     "description": "The LogoKit Logo API allows you to retrieve company logos by domain, providing high-quality PNG images via hotlinking. Supports fallback options and attribution for free users."
   },
-  "servers": [
-    {
-      "url": "https://img.logokit.com",
-      "description": "Image API server - for logo endpoints only"
-    },
-    {
-      "url": "https://api.logokit.com",
-      "description": "API server - for brand information endpoints only"
-    }
-  ],
   "paths": {
     "/{domain}": {
       "get": {
@@ -44,7 +34,8 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "<publishable-api-token>"
+              "example": "<publishable-api-token>",
+              "default": "YOUR-API-TOKEN"
             },
             "description": "Publishable API token for authentication. You can find yours in [account settings](https://logokit.com/account/api-tokens)."
           },
@@ -83,12 +74,7 @@
             "description": "Rate limit exceeded."
           }
         },
-        "tags": ["Logo API"],
-        "security": [
-          {
-            "ApiKeyAuth": []
-          }
-        ]
+        "tags": ["Logo API"]
       }
     },
     "/ticker/{symbol}": {
@@ -119,7 +105,8 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "<publishable-api-token>"
+              "example": "<publishable-api-token>",
+              "default": "YOUR-API-TOKEN"
             },
             "description": "Publishable API token for authentication. You can find yours in [account settings](https://logokit.com/account/api-tokens)."
           },
@@ -158,12 +145,7 @@
             "description": "Rate limit exceeded."
           }
         },
-        "tags": ["Stock Logo API"],
-        "security": [
-          {
-            "ApiKeyAuth": []
-          }
-        ]
+        "tags": ["Stock Logo API"]
       }
     },
     "/crypto/{symbol}": {
@@ -194,7 +176,8 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "<publishable-api-token>"
+              "example": "<publishable-api-token>",
+              "default": "YOUR-API-TOKEN"
             },
             "description": "Publishable API token for authentication. You can find yours in [account settings](https://logokit.com/account/api-tokens)."
           },
@@ -233,12 +216,7 @@
             "description": "Rate limit exceeded."
           }
         },
-        "tags": ["Crypto Logo API"],
-        "security": [
-          {
-            "ApiKeyAuth": []
-          }
-        ]
+        "tags": ["Crypto Logo API"]
       }
     },
     "/brands/{identifier}": {
@@ -318,15 +296,10 @@
   },
   "components": {
     "securitySchemes": {
-      "ApiKeyAuth": {
-        "type": "apiKey",
-        "in": "query",
-        "name": "token"
-      },
       "BearerAuth": {
         "type": "http",
         "scheme": "bearer",
-        "description": "Bearer token authentication. You must provide a valid Secret API token in the Authorization header of your request. You can find yours in your [account settings](https://logokit.com/account/api-tokens)."
+        "description": "Bearer token authentication. You must provide a valid **Secret API token** in the Authorization header of your request. You can find yours in your [account settings](https://logokit.com/account/api-tokens)."
       }
     }
   },
