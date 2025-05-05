@@ -1,6 +1,7 @@
 ---
 title: "Crypto Logo API"
 description: "The Crypto Logo API allows you to retrieve logos based on cryptocurrency symbols, providing both high-quality images and fallback options when a logo is not available."
+openapi: "GET /crypto/{symbol}"
 ---
 
 ## Introduction
@@ -15,39 +16,6 @@ The following HTML snippet demonstrates how to retrieve a logo for cryptocurrenc
 <Frame>
   <img src="/images/BTC.png" />
 </Frame>
-
-## Crypto Logo API Endpoint
-
-```md Request
-https://img.logokit.com/crypto/<symbol>?token=<publishable-api-token>
-```
-
-### Parameters
-
-<ParamField path="symbol" type="string" required>
-  Cryptocurrency symbol for which you want to retrieve the logo. For example,
-  `BTC` for Bitcoin or `ETH` for Ethereum. We support all major cryptocurrencies
-  including Bitcoin, Ethereum, and other popular altcoins.
-</ParamField>
-
-<ParamField path="token" type="string" required>
-  Your publishable token for authentication. You can find yours in [account
-  settings](https://logokit.com/account/api-tokens).
-</ParamField>
-
-<ParamField path="fallback" type="string" default="monogram">
-  Define response type when the logo is not available.
-  <Expandable title="values">
-    <ParamField path="monogram" type="string">
-      Returns a monogram image created from the first letter of the cryptocurrency symbol.
-    </ParamField>
-
-    <ParamField path="404" type="string | number">
-      Returns a 404 HTTP error
-    </ParamField>
-
-  </Expandable>
-</ParamField>
 
 ## Rate Limiting
 

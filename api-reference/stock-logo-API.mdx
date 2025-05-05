@@ -1,6 +1,7 @@
 ---
 title: "Stock Logo API"
 description: "The Stock Logo API allows you to retrieve logos based on a stock exchange ticker, providing both high-quality images and fallback options when a logo is not available."
+openapi: "GET /ticker/{symbol}"
 ---
 
 ## Introduction
@@ -15,39 +16,6 @@ The following HTML snippet demonstrates how to retrieve a logo for stock ticker 
 <Frame>
   <img src="/images/apple.png" />
 </Frame>
-
-## Stock Logo API Endpoint
-
-```md Request
-https://img.logokit.com/ticker/<symbol>?token=<publishable-api-token>
-```
-
-### Parameters
-
-<ParamField path="symbol" type="string" required>
-  Stock ticker for which you want to retrieve the logo. For example, `AAPL`. We
-  support all major stock exchanges worldwide, including NYSE, NASDAQ, TYO, LSE,
-  and more.
-</ParamField>
-
-<ParamField path="token" type="string" required>
-  Your publishable token for authentication. You can find yours in [account
-  settings](https://logokit.com/account/api-tokens).
-</ParamField>
-
-<ParamField path="fallback" type="string" default="monogram">
-  Define response type when the logo is not available.
-  <Expandable title="values">
-    <ParamField path="monogram" type="string">
-      Returns a monogram image created from the first letter of the domain or symbol.
-    </ParamField>
-
-    <ParamField path="404" type="string | number">
-      Returns a 404 HTTP error
-    </ParamField>
-
-  </Expandable>
-</ParamField>
 
 ## Rate Limiting
 
@@ -93,3 +61,5 @@ The Logo API is available for both free and paid plans. However, the free plan h
     ```
   </Accordion>
 </AccordionGroup>
+
+## Parameters

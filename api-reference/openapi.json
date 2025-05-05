@@ -7,12 +7,23 @@
   },
   "servers": [
     {
-      "url": "https://img.logokit.com"
+      "url": "https://img.logokit.com",
+      "description": "Image API server - for logo endpoints only"
+    },
+    {
+      "url": "https://api.logokit.com",
+      "description": "API server - for brand information endpoints only"
     }
   ],
   "paths": {
     "/{domain}": {
       "get": {
+        "servers": [
+          {
+            "url": "https://img.logokit.com",
+            "description": "Image API server"
+          }
+        ],
         "summary": "Retrieve logo by domain",
         "description": "Returns the logo for the specified domain as a PNG image. Free users: 64x64px. Paid users: 128x128px. Caching or local storage of images is not supported.",
         "operationId": "getLogoDomain",
@@ -35,7 +46,7 @@
               "type": "string",
               "example": "<publishable-api-token>"
             },
-            "description": "Publishable API token for authentication."
+            "description": "Publishable API token for authentication. You can find yours in [account settings](https://logokit.com/account/api-tokens)."
           },
           {
             "name": "fallback",
@@ -72,11 +83,22 @@
             "description": "Rate limit exceeded."
           }
         },
-        "tags": ["Logo API"]
+        "tags": ["Logo API"],
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
       }
     },
     "/ticker/{symbol}": {
       "get": {
+        "servers": [
+          {
+            "url": "https://img.logokit.com",
+            "description": "Image API server"
+          }
+        ],
         "summary": "Retrieve logo by stock ticker symbol",
         "description": "Returns the logo for the specified stock ticker as a PNG image. Free users: 64x64px. Paid users: 128x128px. Caching or local storage of images is not supported.",
         "operationId": "getLogoTicker",
@@ -89,7 +111,7 @@
               "type": "string",
               "example": "AAPL"
             },
-            "description": "The stock ticker symbol for which to retrieve the logo."
+            "description": "The stock ticker symbol for which to retrieve the logo. For example, AAPL. We support all major stock exchanges worldwide, including NYSE, NASDAQ, TSE, LSE, SZSE, Euronext, Deutsche Boerse and more."
           },
           {
             "name": "token",
@@ -99,7 +121,7 @@
               "type": "string",
               "example": "<publishable-api-token>"
             },
-            "description": "Publishable API token for authentication."
+            "description": "Publishable API token for authentication. You can find yours in [account settings](https://logokit.com/account/api-tokens)."
           },
           {
             "name": "fallback",
@@ -136,11 +158,22 @@
             "description": "Rate limit exceeded."
           }
         },
-        "tags": ["Stock Logo API"]
+        "tags": ["Stock Logo API"],
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
       }
     },
     "/crypto/{symbol}": {
       "get": {
+        "servers": [
+          {
+            "url": "https://img.logokit.com",
+            "description": "Image API server"
+          }
+        ],
         "summary": "Retrieve logo by cryptocurrency symbol",
         "description": "Returns the logo for the specified cryptocurrency as a PNG image. Free users: 64x64px. Paid users: 128x128px. Caching or local storage of images is not supported.",
         "operationId": "getLogoCrypto",
@@ -153,7 +186,7 @@
               "type": "string",
               "example": "BTC"
             },
-            "description": "The cryptocurrency symbol for which to retrieve the logo."
+            "description": "The cryptocurrency symbol for which to retrieve the logo. For example, BTC for Bitcoin or ETH for Ethereum. We support over 12,000 cryptocurrencies."
           },
           {
             "name": "token",
@@ -163,7 +196,7 @@
               "type": "string",
               "example": "<publishable-api-token>"
             },
-            "description": "Publishable API token for authentication."
+            "description": "Publishable API token for authentication. You can find yours in [account settings](https://logokit.com/account/api-tokens)."
           },
           {
             "name": "fallback",
@@ -200,7 +233,86 @@
             "description": "Rate limit exceeded."
           }
         },
-        "tags": ["Crypto Logo API"]
+        "tags": ["Crypto Logo API"],
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/brands/{identifier}": {
+      "get": {
+        "servers": [
+          {
+            "url": "https://api.logokit.com",
+            "description": "API server for brand information"
+          }
+        ],
+        "summary": "Retrieve brand information",
+        "description": "Returns comprehensive data about companies, including their address, domain, founding year, and number of employees. Available only for paid plans.",
+        "operationId": "getBrandInfo",
+        "parameters": [
+          {
+            "name": "identifier",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "apple.com"
+            },
+            "description": "The domain or stock ticker for which you want to retrieve brand information. For example, apple.com or AAPL. We support all major stock exchanges worldwide."
+          }
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Brand information found and returned as JSON.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "address": {
+                      "type": "object",
+                      "properties": {
+                        "address1": { "type": "string" },
+                        "address2": { "type": "string" },
+                        "city": { "type": "string" },
+                        "state": { "type": "string" },
+                        "zip": { "type": "string" },
+                        "country": { "type": "string" }
+                      }
+                    },
+                    "domain": { "type": "string" },
+                    "founded_year": { "type": "string" },
+                    "icon": { "type": "string" },
+                    "issued_currency": { "type": "string" },
+                    "long_description": { "type": "string" },
+                    "name": { "type": "string" },
+                    "number_of_employees": { "type": "string" },
+                    "short_description": { "type": "string" },
+                    "website": { "type": "string" }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid or missing API token."
+          },
+          "404": {
+            "description": "Brand information not found for the specified identifier."
+          },
+          "429": {
+            "description": "Rate limit exceeded."
+          }
+        },
+        "tags": ["Brand API"]
       }
     }
   },
@@ -210,14 +322,14 @@
         "type": "apiKey",
         "in": "query",
         "name": "token"
+      },
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "Bearer token authentication. You must provide a valid Secret API token in the Authorization header of your request. You can find yours in your [account settings](https://logokit.com/account/api-tokens)."
       }
     }
   },
-  "security": [
-    {
-      "ApiKeyAuth": []
-    }
-  ],
   "tags": [
     {
       "name": "Logo API",
@@ -230,6 +342,10 @@
     {
       "name": "Crypto Logo API",
       "description": "Operations for retrieving logos by cryptocurrency symbols"
+    },
+    {
+      "name": "Brand API",
+      "description": "Operations for retrieving comprehensive brand information"
     }
   ],
   "externalDocs": {

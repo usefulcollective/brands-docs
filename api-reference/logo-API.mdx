@@ -1,6 +1,7 @@
 ---
 title: "Logo API"
 description: "The Logo API allows you to retrieve logos based on a domain, providing both high-quality images and fallback options when a logo is not available."
+openapi: "GET /{domain}"
 ---
 
 ## Introduction
@@ -19,36 +20,6 @@ The following HTML snippet demonstrates how to retrieve a logo for the domain `a
 
 <Frame>![](/images/apple.png)</Frame>
 
-## Logo API Endpoint
-
-```md Request
-https://img.logokit.com/<domain>?token=<publishable-api-token>
-```
-
-### Parameters
-
-<ParamField path="domain" type="string" required>
-  The domain for which you want to retrieve the logo. For example, `apple.com`.
-</ParamField>
-
-<ParamField path="token" type="string" required>
-  Your publishable token for authentication. You can find yours in [account
-  settings](https://logokit.com/account/api-tokens).
-</ParamField>
-
-<ParamField path="fallback" default="monogram" type="string">
-  Define response type when the logo is not available.
-
-  <Expandable title="values">
-    <ParamField path="monogram" type="string">
-      Returns a monogram image created from the first letter of the domain or symbol.
-    </ParamField>
-    <ParamField path="404" type="string | number">
-      Returns a 404 HTTP error
-    </ParamField>
-  </Expandable>
-</ParamField>
-
 ## Rate Limiting
 
 Rate limiting is enforced based on the user's plan. Keep this in mind to avoid hitting your limits during development. To get more information about the rate limits, please refer to the [pricing page](https://logokit.com/pricing).
@@ -62,7 +33,7 @@ Rate limiting is enforced based on the user's plan. Keep this in mind to avoid h
 
 The Logo API is available for both free and paid plans. However, the free plan has limitations on the number of requests you can make per day. If you need more requests or additional features, consider upgrading to a paid plan.
 
-### Attribution
+## Attribution
 
 As part of our commitment to providing valuable logo services to everyone, we offer a generous free plan with essential features. In return, we simply ask that free plan users include a small attribution link to LogoKit on pages where our logos appear.
 
@@ -110,3 +81,5 @@ This small acknowledgment helps us continue offering free logo services while gr
 
   </Accordion>
 </AccordionGroup>
+
+## Parameters

@@ -31,10 +31,6 @@
       {
         "group": "Support",
         "pages": ["support/report-inaccurate-data", "support/api-status"]
-      },
-      {
-        "group": "Playground",
-        "openapi": "api-reference/openapi.json"
       }
     ]
   },
