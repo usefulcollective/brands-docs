@@ -14,9 +14,9 @@
         "group": "Get Started",
         "pages": [
           "introduction",
-          "quick_start",
+          "quick-start",
           "authentication",
-          "migrate_from_clearbit"
+          "migrate-from-clearbit"
         ]
       },
       {
@@ -24,15 +24,30 @@
         "pages": [
           "api-reference/logo-API",
           "api-reference/stock-logo-API",
+          "api-reference/crypto-logo-API",
           "api-reference/brand-API"
         ]
       },
       {
         "group": "Support",
         "pages": ["support/report-inaccurate-data", "support/api-status"]
+      },
+      {
+        "group": "Playground",
+        "openapi": "api-reference/openapi.json"
       }
     ]
   },
+  "redirects": [
+    {
+      "source": "/migrate_from_clearbit",
+      "destination": "/migrate-from-clearbit"
+    },
+    {
+      "source": "/quick_start",
+      "destination": "/quick-start"
+    }
+  ],
   "logo": {
     "light": "/logo/wide_logo.png",
     "dark": "/logo/wide_logo_white.png"
