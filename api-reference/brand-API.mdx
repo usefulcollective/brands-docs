@@ -1,86 +1,27 @@
 ---
 title: "Brand API"
 description: "The Brand API provides comprehensive data about companies, including their address, domain, founding year, and number of employees. It's designed for developers looking to integrate reliable brand information into their applications, making it easier to enhance user experiences with up-to-date brand insights."
+openapi: "GET /brands/{identifier}"
 ---
 
-<Warning>
+<Info>
   Brand API endpoints are available only for paid plans. If you are on a free
   plan, you can [upgrade here](https://logokit.com/pricing).
-</Warning>
-
-## Brand API endpoint
-
-```bash Request
-curl "https://api.logokit.com/brands/<identifier>" \
-     --header "Authorization: Bearer: <secret-api-token>"
-```
-
-<Expandable title="Response">
-```json JSON Response
-{
-  "address": {
-    "address1": "One Apple Park Way",
-    "address2": "",
-    "city": "Cupertino",
-    "state": "CA",
-    "zip": "95014",
-    "country": "US"
-  },
-  "domain": "apple.com",
-  "founded_year": "1977",
-  "icon": "https://img.logokit.com/apple.com?token=<publishable-api-token>",
-  "issued_currency": "USD",
-  "long_description": "Apple Inc. designs, manufactures, and markets smartphones, personal computers, tablets, wearables and accessories, and sells a variety of related accessories. The Company also offers payment, digital content, cloud and advertising services. Apple Inc.'s customers are primarily in consumer, small & mid-sized business, education, enterprise and government markets worldwide.",
-  "name": "Apple",
-  "number_of_employees": "150000",
-  "short_description": "Apple Inc. designs, manufactures, and markets smartphones, personal computers, tablets, wearables, and accessories worldwide. The company offers iPhone, a line of smartphones; Mac, a line of personal computers; iPad, a line of multi-purpose tablets; and wearables, home, and accessories comprising AirPods, Apple TV, Apple Watch, Beats products, and HomePod. It also provides AppleCare support and cloud services; and operates various platforms, including the App Store that allow customers to discover and download applications and digital content, such as books, music, video, games, and podcasts, as well as advertising services include third-party licensing arrangements and its own advertising platforms. In addition, the company offers various subscription-based services, such as Apple Arcade, a game subscription service; Apple Fitness+, a personalized fitness service; Apple Music, which offers users a curated listening experience with on-demand radio stations; Apple News+, a subscription news and magazine service; Apple TV+, which offers exclusive original content; Apple Card, a co-branded credit card; and Apple Pay, a cashless payment service, as well as licenses its intellectual property. The company serves consumers, and small and mid-sized businesses; and the education, enterprise, and government markets. It distributes third-party applications for its products through the App Store. The company also sells its products through its retail and online stores, and direct sales force; and third-party cellular network carriers, wholesalers, retailers, and resellers. Apple Inc. was founded in 1976 and is headquartered in Cupertino, California.",
-  "website": "https://www.apple.com"
-}
-```
-</Expandable>
+</Info>
 
 ### Authentication
 
-Brand API endpoints are authenticated using Bearer token authentication. You must
-provide a valid API token in the `Authorization` header of your request. This token
-is used to verify your identity and grant access to the API. Make sure to keep
-this secret API token secure and do not share it publicly. You can find yours in
+Brand API endpoint is authenticated using Bearer token in the `Authorization` header of your request. Make sure to keep
+this **secret API token** secure and do not share it publicly. You can find yours in
 [your account](https://logokit.com/account/api-tokens).
 
 ```http
 Authorization: Bearer: <secret-api-token>
 ```
 
-### Parameters
-
-<ParamField path="identifier" type="string" required>
-  The domain or stock ticker for which you want to retrieve the logo. For
-  example, `apple.com` or `AAPL`. We support all major stock exchanges
-  worldwide, including NYSE, NASDAQ, TYO, LSE, and more.
-</ParamField>
-
-### Response
-
-<ResponseField name="200 OK" type="application/json">
-  The API returns a JSON object containing the brand information for the
-  specified identifier. The response includes details such as the brand's name,
-  address, founding year, number of employees, and more.
-</ResponseField>
-
-<ResponseField name="401 Unauthorized">
-  The API returns a 401 Unauthorized error if the provided API token is invalid
-  or missing. Ensure that you include a valid Bearer token in the
-  `Authorization` header of your request.
-</ResponseField>
-
-<ResponseField name="404 Not Found">
-  The API returns a 404 Not Found error if the specified identifier does not
-  exist in our database. Make sure to use a valid domain or stock ticker.
-</ResponseField>
-
 ## Rate Limiting
 
-Similar to the Logo API, the Brand API implements rate limiting based on user subscription plans, with access only for paid users.
+Similar to the Logo API, the Brand API implements rate limiting based on user subscription plans.
 To get more information about the rate limits, please refer to the [pricing page](https://logokit.com/pricing).
 
 ## Examples
@@ -119,3 +60,5 @@ To get more information about the rate limits, please refer to the [pricing page
 
   </Accordion>
 </AccordionGroup>
+
+## Parameters

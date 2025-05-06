@@ -1,0 +1,58 @@
+---
+title: "Crypto Logo API"
+description: "Crypto Logo API allows you to retrieve logos based on cryptocurrency symbols, providing both high-quality images and fallback options when a logo is not available."
+openapi: "GET /crypto/{symbol}"
+---
+
+## Basic Usage
+
+Crypto Logo API works through hotlinking logos of different cryptocurrencies directly into your app or website. Simply use an image tag, and the logos will load directly from our global CDN. This approach ensures you always display the most current logo versions without managing logo files yourself. Since our service is designed for hotlinking, please note that caching or storing the logo images locally is not supported.
+
+This HTML snippet demonstrates how to retrieve a logo for `BTC` (Bitcoin):
+
+```html
+<img src="https://img.logokit.com/crypto/BTC?token=<publishable-api-token>" />
+```
+
+<Frame>
+  <img src="/images/BTC.png" />
+</Frame>
+
+## Limitations
+
+<Info>
+  Our Free Logo API plan is limited to 64x64px logos and require an
+  [attribution](/attribution) link. [Upgrade ](https://logokit.com/pricing) to a
+  paid plan for high resolution logos, increased rate limits and no attribution.
+</Info>
+
+## Examples
+
+<AccordionGroup>
+  <Accordion title="Retrieve logo for Ethereum cryptocurrency">
+    Let's say you want to retrieve the logo for Ethereum (`ETH`). You can
+    do this by using the following URL:
+
+    ```html
+    <img src="https://img.logokit.com/crypto/ETH?token=<publishable-api-token>" />
+    ```
+
+    <Frame>
+      <img src="/images/ETH.png" />
+    </Frame>
+
+  </Accordion>
+  <Accordion title="Get 404 HTTP response for non-existent logo">
+    If you want to receive a 404 HTTP response when the logo is not available, you can
+    use the `fallback` parameter in the URL and set it to `404`. This is useful for
+    handling cases where the logo is not found, and you want to handle it in your
+    application.
+    ```md Request
+    https://img.logokit.com/crypto/INVALID?fallback=404&token=<publishable-api-token>
+    ```
+    
+    ```bash HTTP Response
+      404 Not Found
+    ```
+  </Accordion>
+</AccordionGroup>
