@@ -18,6 +18,32 @@ This snippet demonstrates how to retrieve a logo for stock ticker `AAPL`:
   <img src="/images/apple.png" />
 </Frame>
 
+## Supported Ticker Formats
+
+The API supports a wide range of ticker formats across different exchanges and identification schemes. If no exchange or composite code is specified, `US` is assumed. For example, all of the following identifiers can be used to retrieve the logo for specified companies:
+
+### Apple Inc
+
+- Standard Exchange Tickers: `AAPL` / `AAPL:US`
+- Example Exchange-Specific Tickers: `APC.DE`, `APC.F`, `APC:GR`, `AAPL34.SA`, `AAPL34:BZ`
+- Identification Numbers:
+  - CUSIP `037833100`
+  - SEDOL `2046251`
+  - ISIN `US0378331005`
+
+### Roche Holding AG (voting, non-voting, ADR)
+
+- Standard Exchange Tickers: `RO:SW`, `ROG:SW`, `RHHBY` / `RHHBY:US`
+- Example Exchange-Specific Tickers: `ROGN:MM`, `RHO6.F`
+- Identification Numbers:
+  - CUSIP `S71103881`, `S71089189`, `771195104`
+  - SEDOL `7110388`, `7108918`, `BYZHCK7`
+  - ISIN `CH0012032113`, `CH0012032048`, `US7711951043`
+
+<Note>
+  We continuously expand our coverage of global exchanges and ticker formats. If you need support for specific exchanges or identification schemes not currently available, please reach out to us.
+</Note>
+
 ## Limitations
 
 <Info>
