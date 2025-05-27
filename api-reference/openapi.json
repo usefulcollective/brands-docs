@@ -40,6 +40,17 @@
             "description": "Publishable API token for authentication. You can find yours in [account settings](https://logokit.com/account/api-tokens)."
           },
           {
+            "name": "retina",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": ["false", "true"],
+              "default": null
+            },
+            "description": "Whether to return a retina (2x) version of the logo. Set to 'true' for high-resolution logos (paid users only)."
+          },
+          {
             "name": "fallback",
             "in": "query",
             "required": false,
@@ -111,6 +122,17 @@
             "description": "Publishable API token for authentication. You can find yours in [account settings](https://logokit.com/account/api-tokens)."
           },
           {
+            "name": "retina",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": ["false", "true"],
+              "default": null
+            },
+            "description": "Whether to return a retina (2x) version of the logo. Set to 'true' for high-resolution logos (paid users only)."
+          },
+          {
             "name": "fallback",
             "in": "query",
             "required": false,
@@ -180,6 +202,17 @@
               "default": "YOUR-API-TOKEN"
             },
             "description": "Publishable API token for authentication. You can find yours in [account settings](https://logokit.com/account/api-tokens)."
+          },
+          {
+            "name": "retina",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": ["false", "true"],
+              "default": null
+            },
+            "description": "Whether to return a retina (2x) version of the logo. Set to 'true' for high-resolution logos (paid users only)."
           },
           {
             "name": "fallback",
