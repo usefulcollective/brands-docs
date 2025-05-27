@@ -40,6 +40,17 @@
             "description": "Publishable API token for authentication. You can find yours in [account settings](https://logokit.com/account/api-tokens)."
           },
           {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "enum": [64, 128, 256],
+              "default": null
+            },
+            "description": "Size of the logo to return. Allowed values are 64, 128, or 256. Default is 64px for free users, 128px for paid users. Set to 256px for high-resolution logos (paid users only)."
+          },
+          {
             "name": "fallback",
             "in": "query",
             "required": false,
@@ -111,6 +122,17 @@
             "description": "Publishable API token for authentication. You can find yours in [account settings](https://logokit.com/account/api-tokens)."
           },
           {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "enum": [64, 128, 256],
+              "default": null
+            },
+            "description": "Size of the logo to return. Allowed values are 64, 128, or 256. Default is 64px for free users, 128px for paid users. Set to 256px for high-resolution logos (paid users only)."
+          },
+          {
             "name": "fallback",
             "in": "query",
             "required": false,
@@ -180,6 +202,17 @@
               "default": "YOUR-API-TOKEN"
             },
             "description": "Publishable API token for authentication. You can find yours in [account settings](https://logokit.com/account/api-tokens)."
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "enum": [64, 128, 256],
+              "default": null
+            },
+            "description": "Size of the logo to return. Allowed values are 64, 128, or 256. Default is 64px for free users, 128px for paid users. Set to 256px for high-resolution logos (paid users only)."
           },
           {
             "name": "fallback",
