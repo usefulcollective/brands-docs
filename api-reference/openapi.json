@@ -40,15 +40,15 @@
             "description": "Publishable API token for authentication. You can find yours in [account settings](https://logokit.com/account/api-tokens)."
           },
           {
-            "name": "retina",
+            "name": "size",
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "enum": ["false", "true"],
+              "type": "number",
+              "enum": [64, 128, 256],
               "default": null
             },
-            "description": "Whether to return a retina (2x) version of the logo. Set to 'true' for high-resolution logos (paid users only)."
+            "description": "Size of the logo to return. Allowed values are 64, 128, or 256. Default is 64px for free users, 128px for paid users. Set to 256px for high-resolution logos (paid users only)."
           },
           {
             "name": "fallback",
@@ -122,15 +122,15 @@
             "description": "Publishable API token for authentication. You can find yours in [account settings](https://logokit.com/account/api-tokens)."
           },
           {
-            "name": "retina",
+            "name": "size",
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "enum": ["false", "true"],
+              "type": "number",
+              "enum": [64, 128, 256],
               "default": null
             },
-            "description": "Whether to return a retina (2x) version of the logo. Set to 'true' for high-resolution logos (paid users only)."
+            "description": "Size of the logo to return. Allowed values are 64, 128, or 256. Default is 64px for free users, 128px for paid users. Set to 256px for high-resolution logos (paid users only)."
           },
           {
             "name": "fallback",
@@ -204,15 +204,15 @@
             "description": "Publishable API token for authentication. You can find yours in [account settings](https://logokit.com/account/api-tokens)."
           },
           {
-            "name": "retina",
+            "name": "size",
             "in": "query",
             "required": false,
             "schema": {
-              "type": "string",
-              "enum": ["false", "true"],
+              "type": "number",
+              "enum": [64, 128, 256],
               "default": null
             },
-            "description": "Whether to return a retina (2x) version of the logo. Set to 'true' for high-resolution logos (paid users only)."
+            "description": "Size of the logo to return. Allowed values are 64, 128, or 256. Default is 64px for free users, 128px for paid users. Set to 256px for high-resolution logos (paid users only)."
           },
           {
             "name": "fallback",
