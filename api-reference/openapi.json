@@ -288,6 +288,35 @@
                 "schema": {
                   "type": "object",
                   "properties": {
+                    "name": { "type": "string" },
+                    "domain": { "type": "string" },
+                    "short_description": { "type": "string" },
+                    "long_description": { "type": "string" },
+                    "website": { "type": "string" },
+                    "logo": { "type": "string" },
+                    "founded_year": { "type": "string" },
+                    "issued_currency": { "type": "string" },
+                    "number_of_employees": { "type": "string" },
+                    "social_media": {
+                      "type": "object",
+                      "properties": {
+                        "facebook": { "type": "string" },
+                        "x": { "type": "string" },
+                        "instagram": { "type": "string" },
+                        "linkedin": { "type": "string" },
+                        "youtube": { "type": "string" },
+                        "pinterest": { "type": "string" },
+                        "tiktok": { "type": "string" },
+                        "reddit": { "type": "string" },
+                        "snapchat": { "type": "string" },
+                        "discord": { "type": "string" },
+                        "tumblr": { "type": "string" },
+                        "vimeo": { "type": "string" }
+                      }
+                    },
+                    "bics_sector": { "type": "string" },
+                    "bics_industry": { "type": "string" },
+                    "bics_sub_industry": { "type": "string" },
                     "address": {
                       "type": "object",
                       "properties": {
@@ -298,16 +327,7 @@
                         "zip": { "type": "string" },
                         "country": { "type": "string" }
                       }
-                    },
-                    "domain": { "type": "string" },
-                    "founded_year": { "type": "string" },
-                    "icon": { "type": "string" },
-                    "issued_currency": { "type": "string" },
-                    "long_description": { "type": "string" },
-                    "name": { "type": "string" },
-                    "number_of_employees": { "type": "string" },
-                    "short_description": { "type": "string" },
-                    "website": { "type": "string" }
+                    }
                   }
                 }
               }
