@@ -290,10 +290,17 @@
                   "properties": {
                     "name": { "type": "string" },
                     "domain": { "type": "string" },
+                    "long_name": { "type": "string" },
                     "short_description": { "type": "string" },
                     "long_description": { "type": "string" },
                     "website": { "type": "string" },
                     "logo": { "type": "string" },
+                    "colors": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
                     "founded_year": { "type": "string" },
                     "issued_currency": { "type": "string" },
                     "number_of_employees": { "type": "string" },
@@ -314,9 +321,6 @@
                         "vimeo": { "type": "string" }
                       }
                     },
-                    "bics_sector": { "type": "string" },
-                    "bics_industry": { "type": "string" },
-                    "bics_sub_industry": { "type": "string" },
                     "address": {
                       "type": "object",
                       "properties": {
@@ -327,7 +331,11 @@
                         "zip": { "type": "string" },
                         "country": { "type": "string" }
                       }
-                    }
+                    },
+                    "gics_sector": { "type": "string" },
+                    "gics_industry_group": { "type": "string" },
+                    "gics_industry": { "type": "string" },
+                    "gics_sub_industry": { "type": "string" }
                   }
                 }
               }
