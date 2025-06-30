@@ -19,6 +19,10 @@ This snippet demonstrates how to retrieve a logo for stock ticker `AAPL`:
   <img src="/images/apple.png" />
 </Frame>
 
+<Note>
+  By default, only the most popular exchanges are enabled on a new account. If you require access to additional exchanges, please contact us to enable them for you.
+</Note>
+
 ## Supported Ticker Formats
 
 The API supports a wide range of ticker formats across different exchanges and identification schemes. If no exchange or composite code is specified, `US` is assumed. For example, all of the following identifiers can be used to retrieve the logo for specified companies:
@@ -31,6 +35,7 @@ The API supports a wide range of ticker formats across different exchanges and i
   - CUSIP `037833100`
   - SEDOL `2046251`
   - ISIN `US0378331005`
+  - WKN `865985`
 
 ### Roche Holding AG (voting, non-voting, ADR)
 
@@ -40,19 +45,16 @@ The API supports a wide range of ticker formats across different exchanges and i
   - CUSIP `S71103881`, `S71089189`, `771195104`
   - SEDOL `7110388`, `7108918`, `BYZHCK7`
   - ISIN `CH0012032113`, `CH0012032048`, `US7711951043`
+  - WKN `851311`, `855167`, `891106`
 
 <Note>
-  We continuously expand our coverage of global exchanges and ticker formats. If
-  you need support for specific exchanges or identification schemes not
-  currently available, please reach out to us.
+  We continuously expand our coverage of global exchanges and ticker formats. If you need support for specific exchanges or identification schemes not currently available, please reach out to us.
 </Note>
 
 ## Limitations
 
 <Info>
-  Our Free Logo API plan is limited to 64x64px logos and require an
-  [attribution](/attribution) link. [Upgrade ](https://logokit.com/pricing) to a
-  paid plan for high resolution logos, increased rate limits and no attribution.
+  Our Free Logo API plan is limited to 64x64px logos and require an [attribution](/attribution) link. [Upgrade ](https://logokit.com/pricing) to a paid plan for high resolution logos, increased rate limits and no attribution.
 </Info>
 
 ## Examples
@@ -70,6 +72,50 @@ The API supports a wide range of ticker formats across different exchanges and i
       <img src="/images/nvda.png" alt="NVDA logo (identification only, no affiliation)" />
     </Frame>
 
+  </Accordion>
+  <Accordion title="Retrieve logo for Vanguard Total Stock Market Index Fund ETF using its ISIN">
+    Let's say you want to retrieve the logo for the Vanguard Total Stock Market Index Fund ETF using its ISIN `US9229087690`. You can do this by using the following URL:
+
+    ```html
+    <img src="https://img.logokit.com/ticker/US9229087690?token=<publishable-api-token>" alt="Vanguard Total Stock Market Index Fund ETF logo (identification only, no affiliation)" />
+    ```
+
+    <Frame>
+      <img src="/images/vti.png" alt="Vanguard Total Stock Market Index Fund ETF logo (identification only, no affiliation)" />
+    </Frame>
+  </Accordion>
+  <Accordion title="Retrieve logo for FTSE All-World UCITS ETF using its ticker">
+    Let's say you want to retrieve the logo for the FTSE All-World UCITS ETF using its ticker `VWRL` traded on the London Stock Exchange. You can do this by using the following URL:
+
+    ```html
+    <img src="https://img.logokit.com/ticker/VWRL:LN?token=<publishable-api-token>" alt="FTSE All-World UCITS ETF logo (identification only, no affiliation)" />
+    ```
+
+    <Frame>
+      <img src="/images/vti.png" alt="Vanguard Total Stock Market Index Fund ETF logo (identification only, no affiliation)" />
+    </Frame>
+  </Accordion>
+  <Accordion title="Retrieve logo for USD currency for positions and spot rates">
+    Let's say you want to retrieve the logo for the USD currency. You can do this by using the following URL:
+
+    ```html
+    <img src="https://img.logokit.com/ticker/USD:CUR?token=<publishable-api-token>" alt="USD" />
+    ```
+
+    <Frame>
+      <img src="/images/usd.png" alt="USD" />
+    </Frame>
+  </Accordion>
+  <Accordion title="Retrieve logo for USD to EUR FX rate">
+    Let's say you want to retrieve the logo for the USD to EUR FX rate. You can do this by using the following URL:
+
+    ```html
+    <img src="https://img.logokit.com/ticker/USDEUR:CUR?token=<publishable-api-token>" alt="USD to EUR FX rate" />
+    ```
+
+    <Frame>
+      <img src="/images/USDEUR.png" alt="USD to EUR FX rate" />
+    </Frame>
   </Accordion>
   <Accordion title="Get 404 HTTP response for non-existent logo">
     If you want to receive a 404 HTTP response when the logo is not available, you can
