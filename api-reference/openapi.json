@@ -56,11 +56,11 @@
             "required": false,
             "schema": {
               "type": "string",
-              "enum": ["monogram", "404"],
+              "enum": ["monogram", "monogram-light", "404"],
               "default": "monogram"
             },
             "example": "monogram",
-            "description": "Fallback behavior if the logo is not available. 'monogram': Returns a monogram image from the first letter of the domain (default). '404': Returns a 404 HTTP error."
+            "description": "Fallback behavior if the logo is not available. 'monogram': Returns a monogram image from the first letter of the domain (default). 'monogram-light': Returns a light variant of the monogram with light background. '404': Returns a 404 HTTP error."
           }
         ],
         "responses": {
@@ -138,11 +138,11 @@
             "required": false,
             "schema": {
               "type": "string",
-              "enum": ["monogram", "404"],
+              "enum": ["monogram", "monogram-light", "404"],
               "default": "monogram"
             },
             "example": "monogram",
-            "description": "Fallback behavior if the logo is not available. 'monogram': Returns a monogram image from the first letter of the symbol (default). '404': Returns a 404 HTTP error."
+            "description": "Fallback behavior if the logo is not available. 'monogram': Returns a monogram image from the first letter of the symbol (default). 'monogram-light': Returns a light variant of the monogram with light background. '404': Returns a 404 HTTP error."
           }
         ],
         "responses": {
@@ -220,11 +220,11 @@
             "required": false,
             "schema": {
               "type": "string",
-              "enum": ["monogram", "404"],
+              "enum": ["monogram", "monogram-light", "404"],
               "default": "monogram"
             },
             "example": "monogram",
-            "description": "Fallback behavior if the logo is not available. 'monogram': Returns a monogram image from the first letter of the symbol (default). '404': Returns a 404 HTTP error."
+            "description": "Fallback behavior if the logo is not available. 'monogram': Returns a monogram image from the first letter of the symbol (default). 'monogram-light': Returns a light variant of the monogram with light background. '404': Returns a 404 HTTP error."
           }
         ],
         "responses": {

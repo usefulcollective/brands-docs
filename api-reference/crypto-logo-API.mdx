@@ -43,6 +43,20 @@ This HTML snippet demonstrates how to retrieve a logo for `BTC` (Bitcoin):
     </Frame>
 
   </Accordion>
+  <Accordion title="Get light monogram fallback for non-existent logo">
+    If you want to receive a light variant of the monogram fallback when the logo is not available, you can
+    use the `fallback` parameter in the URL and set it to `monogram-light`. This is useful for
+    light-themed applications where you want a fallback with a light background.
+    ```md Request
+    https://img.logokit.com/crypto/INVALID?fallback=monogram-light&token=<publishable-api-token>
+    ```
+    
+    This will return a light monogram image generated from the first three letters of the cryptocurrency symbol with a light background, perfect for light-themed interfaces.
+    
+     <Frame>
+      <img src="/images/INV.png" alt="INV logo" />
+    </Frame>
+  </Accordion>
   <Accordion title="Get 404 HTTP response for non-existent logo">
     If you want to receive a 404 HTTP response when the logo is not available, you can
     use the `fallback` parameter in the URL and set it to `404`. This is useful for

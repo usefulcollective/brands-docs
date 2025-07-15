@@ -61,8 +61,8 @@ The API supports a wide range of ticker formats across different exchanges and i
 
 <AccordionGroup>
   <Accordion title="Retrieve logo for Nvidia stock ticker">
-    Let's say you want to retrieve the logo for the NASDAQ's ticker `NVDA`. You can
-    do this by using the following URL:
+    To retrieve the logo for the NASDAQ's ticker `NVDA`, you can
+    use the following URL:
 
     ```html
     <img src="https://img.logokit.com/ticker/NVDA?token=<publishable-api-token>" alt="NVDA logo (identification only, no affiliation)" />
@@ -74,7 +74,7 @@ The API supports a wide range of ticker formats across different exchanges and i
 
   </Accordion>
   <Accordion title="Retrieve logo for Vanguard Total Stock Market Index Fund ETF using its ISIN">
-    Let's say you want to retrieve the logo for the Vanguard Total Stock Market Index Fund ETF using its ISIN `US9229087690`. You can do this by using the following URL:
+    For the Vanguard Total Stock Market Index Fund ETF using its ISIN `US9229087690`, you can use the following URL:
 
     ```html
     <img src="https://img.logokit.com/ticker/US9229087690?token=<publishable-api-token>" alt="Vanguard Total Stock Market Index Fund ETF logo (identification only, no affiliation)" />
@@ -85,7 +85,7 @@ The API supports a wide range of ticker formats across different exchanges and i
     </Frame>
   </Accordion>
   <Accordion title="Retrieve logo for Vanguard FTSE All-World UCITS ETF using its ticker">
-    Let's say you want to retrieve the logo for the Vanguard FTSE All-World UCITS ETF using its ticker `VWRL` traded on the London Stock Exchange. You can do this by using the following URL:
+    When you need the logo for the Vanguard FTSE All-World UCITS ETF using its ticker `VWRL` traded on the London Stock Exchange, you can use the following URL:
 
     ```html
     <img src="https://img.logokit.com/ticker/VWRL:LN?token=<publishable-api-token>" alt="Vanguard FTSE All-World UCITS ETF logo (identification only, no affiliation)" />
@@ -96,7 +96,7 @@ The API supports a wide range of ticker formats across different exchanges and i
     </Frame>
   </Accordion>
   <Accordion title="Retrieve logo for USD currency for positions and spot rates">
-    Let's say you want to retrieve the logo for the USD currency. You can do this by using the following URL:
+    To get the logo for the USD currency, use the following URL:
 
     ```html
     <img src="https://img.logokit.com/ticker/USD:CUR?token=<publishable-api-token>" alt="USD" />
@@ -107,7 +107,7 @@ The API supports a wide range of ticker formats across different exchanges and i
     </Frame>
   </Accordion>
   <Accordion title="Retrieve logo for USD to EUR FX rate">
-    Let's say you want to retrieve the logo for the USD to EUR FX rate. You can do this by using the following URL:
+    Here's how to retrieve the logo for the USD to EUR FX rate using the following URL:
 
     ```html
     <img src="https://img.logokit.com/ticker/USDEUR:CUR?token=<publishable-api-token>" alt="USD to EUR FX rate" />
@@ -115,6 +115,19 @@ The API supports a wide range of ticker formats across different exchanges and i
 
     <Frame>
       <img src="/images/USDEUR.png" alt="USD to EUR FX rate" />
+    </Frame>
+  </Accordion>
+  <Accordion title="Get light monogram fallback for non-existent logo">
+    If you want to receive a light variant of the monogram fallback when the logo is not available, you can
+    use the `fallback` parameter in the URL and set it to `monogram-light`. This is useful for
+    light-themed applications where you want a fallback with a light background.
+    ```md Request
+    https://img.logokit.com/ticker/INVALID?fallback=monogram-light&token=<publishable-api-token>
+    ```
+
+    This will return a light monogram image generated from the first three letters of the ticker symbol with a light background, perfect for light-themed interfaces.
+    <Frame>
+      <img src="/images/INV.png" alt="INV logo" />
     </Frame>
   </Accordion>
   <Accordion title="Get 404 HTTP response for non-existent logo">

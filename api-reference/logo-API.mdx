@@ -56,6 +56,20 @@ This HTML snippet demonstrates how to retrieve a logo for `apple.com`:
     ```
 
   </Accordion>
+  <Accordion title="Get light monogram fallback for non-existent logo">
+    If you want to receive a light variant of the monogram fallback when the logo is not available, you can
+    use the `fallback` parameter in the URL and set it to `monogram-light`. This is useful for
+    light-themed applications where you want a fallback with a light background.
+
+    ```md Request
+    https://img.logokit.com/invalid.com?fallback=monogram-light&token=<publishable-api-token>
+    ```
+
+    This will return a light monogram image generated from the first letter of the domain with a light background, perfect for light-themed interfaces.
+    <Frame>
+      ![](/images/I.png)
+    </Frame>
+  </Accordion>
 </AccordionGroup>
 
 ## Parameters
